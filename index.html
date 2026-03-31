@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUI Bakery — Freshly Baked Happiness in Bhaktapur</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+
+  <!-- ============================
+       LOADER
+  ============================= -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <span class="loader-script">MUI</span>
+      <span class="loader-sub">Bakery</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ============================
+       NAVBAR
+  ============================= -->
+  <header class="navbar" id="navbar">
+    <a href="#hero" class="nav-brand">
+      <span class="brand-script">MUI</span>
+      <span class="brand-word">Bakery</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#special" class="nav-link">Custom Cakes</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <a href="tel:+9779851403732" class="btn btn-nav">Order Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileClose"><i class="fas fa-times"></i></button>
+    <nav class="mobile-links">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#menu" class="mobile-link">Menu</a>
+      <a href="#special" class="mobile-link">Custom Cakes</a>
+      <a href="#gallery" class="mobile-link">Gallery</a>
+      <a href="#reviews" class="mobile-link">Reviews</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+    <a href="#menu" class="btn btn-mobile">Order Now</a>
+  </div>
+
+  <main>
+
+    <!-- ============================
+         HERO SECTION
+    ============================= -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img
+          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&q=80"
+          alt="Freshly baked goods at MUI Bakery"
+          class="hero-img"
+        />
+        <div class="hero-overlay"></div>
+        <!-- Floating decorative flour dusts -->
+        <div class="dust dust-1"></div>
+        <div class="dust dust-2"></div>
+        <div class="dust dust-3"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow" id="heroEyebrow">
+          <span class="eyebrow-line"></span>
+          Bhaktapur, Nepal
+          <span class="eyebrow-line"></span>
+        </p>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="title-word">Welcome</span>
+          <span class="title-word title-italic">to</span>
+          <span class="title-word title-script">MUI Bakery</span>
+        </h1>
+        <p class="hero-sub" id="heroSub">Freshly Baked Happiness — crafted with love, <br />local ingredients, and generations of tradition.</p>
+        <div class="hero-actions" id="heroActions">
+          <a href="tel:+9779851403732" class="btn btn-primary">
+            <span>Order Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#about" class="btn btn-ghost">Our Story</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+
+      <!-- Floating badge -->
+      <div class="hero-badge" id="heroBadge">
+        <svg viewBox="0 0 120 120" class="badge-ring">
+          <path id="badgePath" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"/>
+          <text font-size="11" fill="currentColor" font-family="DM Sans, sans-serif" letter-spacing="3">
+            <textPath href="#badgePath">HANDMADE · FRESH DAILY · BHAKTAPUR ·</textPath>
+          </text>
+        </svg>
+        <span class="badge-icon">🍞</span>
+      </div>
+    </section>
+
+    <!-- ============================
+         ABOUT SECTION
+    ============================= -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-images">
+            <div class="about-img-main reveal-img">
+              <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=80"
+                alt="Baker kneading dough at MUI Bakery"
+              />
+            </div>
+            <div class="about-img-accent reveal-img">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
+                alt="Beautiful cake from MUI Bakery"
+              />
+              <div class="img-badge">Est. 2014</div>
+            </div>
+            <div class="about-stat-card reveal-up">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Years of Baking</span>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <p class="section-eyebrow reveal-up">Our Story</p>
+            <h2 class="section-title reveal-up">
+              Made with <em>flour, butter,</em><br/> & a whole lot of love.
+            </h2>
+            <p class="about-body reveal-up">
+              MUI Bakery was born in the heart of Bhaktapur in 2014, when our founder Sunita Shrestha began baking traditional Nepali sweets alongside French-inspired pastries in her family kitchen. What started as a labor of love grew into Bhaktapur's most beloved neighbourhood bakery.
+            </p>
+            <p class="about-body reveal-up">
+              Every item we bake is <strong>handmade from scratch</strong>, using locally sourced wheat, farm-fresh eggs, and seasonal fruits from the Kathmandu Valley. We believe great baking is an act of care — and we pour that care into everything we make.
+            </p>
+            <div class="about-features reveal-up">
+              <div class="feature-pill"><i class="fas fa-seedling"></i> Local Ingredients</div>
+              <div class="feature-pill"><i class="fas fa-hand-holding-heart"></i> Handmade Daily</div>
+              <div class="feature-pill"><i class="fas fa-certificate"></i> No Preservatives</div>
+            </div>
+            <a href="#menu" class="btn btn-primary reveal-up">
+              <span>Explore Our Menu</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         MENU SECTION
+    ============================= -->
+    <section class="menu section" id="menu">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow reveal-up">What We Bake</p>
+          <h2 class="section-title reveal-up">Our Freshly Baked <em>Menu</em></h2>
+          <p class="section-desc reveal-up">Every item baked fresh each morning. Arrive early — they tend to disappear fast.</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs reveal-up">
+          <button class="tab-btn active" data-category="all">All</button>
+          <button class="tab-btn" data-category="cakes">Cakes</button>
+          <button class="tab-btn" data-category="pastries">Pastries</button>
+          <button class="tab-btn" data-category="bread">Bread</button>
+          <button class="tab-btn" data-category="cupcakes">Cupcakes</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+
+          <!-- Cakes -->
+          <div class="menu-card" data-category="cakes">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80" alt="Classic Chocolate Cake" />
+              <div class="card-badge">Best Seller</div>
+            </div>
+            <div class="card-body">
+              <span class="card-category">Cakes</span>
+              <h3 class="card-title">Classic Chocolate Dream</h3>
+              <p class="card-desc">Rich 3-layer chocolate sponge with ganache frosting and dark chocolate shards.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 1,200</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card" data-category="cakes">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Strawberry Shortcake" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">Cakes</span>
+              <h3 class="card-title">Strawberry Shortcake</h3>
+              <p class="card-desc">Fluffy vanilla sponge layered with fresh Himalayan strawberries and whipped cream.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 980</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pastries -->
+          <div class="menu-card" data-category="pastries">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Butter Croissant" />
+              <div class="card-badge">Morning Pick</div>
+            </div>
+            <div class="card-body">
+              <span class="card-category">Pastries</span>
+              <h3 class="card-title">Butter Croissant</h3>
+              <p class="card-desc">72-hour laminated dough, baked golden and flaky with NZ butter.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 180</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card" data-category="pastries">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=80" alt="Pain au Chocolat" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">Pastries</span>
+              <h3 class="card-title">Pain au Chocolat</h3>
+              <p class="card-desc">Buttery croissant dough wrapped around two bars of dark Belgian chocolate.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 220</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bread -->
+          <div class="menu-card" data-category="bread">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80" alt="Sourdough Loaf" />
+              <div class="card-badge">Artisan</div>
+            </div>
+            <div class="card-body">
+              <span class="card-category">Bread</span>
+              <h3 class="card-title">Country Sourdough</h3>
+              <p class="card-desc">12-hour slow-fermented loaf with a crackly crust and chewy interior.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 320</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card" data-category="bread">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=80" alt="Sesame Whole Wheat" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">Bread</span>
+              <h3 class="card-title">Sesame Whole Wheat</h3>
+              <p class="card-desc">Nutty whole wheat loaf crusted with roasted sesame seeds, baked in a stone oven.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 280</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cupcakes -->
+          <div class="menu-card" data-category="cupcakes">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&q=80" alt="Rainbow Cupcake" />
+              <div class="card-badge">Fan Fav</div>
+            </div>
+            <div class="card-body">
+              <span class="card-category">Cupcakes</span>
+              <h3 class="card-title">Rainbow Swirl Cupcake</h3>
+              <p class="card-desc">Vanilla cupcake with multicolour Swiss meringue buttercream swirl. Per piece.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 150</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card" data-category="cupcakes">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&q=80" alt="Red Velvet Cupcake" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">Cupcakes</span>
+              <h3 class="card-title">Red Velvet Bliss</h3>
+              <p class="card-desc">Classic red velvet with tangy cream cheese frosting, dusted with cocoa.</p>
+              <div class="card-footer">
+                <span class="card-price">NPR 160</span>
+                <button class="btn-order"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /menu-grid -->
+      </div>
+    </section>
+
+    <!-- ============================
+         SPECIAL / CUSTOM CAKES
+    ============================= -->
+    <section class="special section" id="special">
+      <div class="special-bg">
+        <img
+          src="https://images.unsplash.com/photo-1542528180-1c2803fa048c?w=1600&q=80"
+          alt="Custom celebration cake"
+          class="special-bg-img"
+        />
+        <div class="special-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="special-content">
+          <div class="special-emoji reveal-up">🎉</div>
+          <p class="section-eyebrow light reveal-up">Something Special</p>
+          <h2 class="special-title reveal-up">We Customize Cakes<br/> <em>for Your Party</em></h2>
+          <p class="special-desc reveal-up">
+            Birthdays, weddings, anniversaries, or just because — our cake artists design
+            bespoke masterpieces tailored exactly to your vision, flavour, and occasion.
+            Share your dream, we'll bake it to life.
+          </p>
+          <div class="special-features reveal-up">
+            <div class="special-feat"><i class="fas fa-paint-brush"></i> Custom Design</div>
+            <div class="special-feat"><i class="fas fa-layer-group"></i> Any Flavour</div>
+            <div class="special-feat"><i class="fas fa-truck"></i> Home Delivery</div>
+            <div class="special-feat"><i class="fas fa-calendar-check"></i> Order 3 Days Ahead</div>
+          </div>
+          <a href="#contact" class="btn btn-cream reveal-up">
+            <span>Request Custom Cake</span>
+            <i class="fas fa-cake-candles"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Animated floating elements -->
+      <div class="float-el fe-1">🍰</div>
+      <div class="float-el fe-2">✨</div>
+      <div class="float-el fe-3">🎂</div>
+    </section>
+
+    <!-- ============================
+         GALLERY SECTION
+    ============================= -->
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow reveal-up">Straight from the Oven</p>
+          <h2 class="section-title reveal-up">A Peek Inside <em>MUI Bakery</em></h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item gi-tall reveal-img" data-lightbox="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800&q=80" alt="MUI Bakery cake" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+          <div class="gallery-item reveal-img" data-lightbox="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80" alt="Pastries" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+          <div class="gallery-item reveal-img" data-lightbox="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80" alt="Cupcakes" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+          <div class="gallery-item gi-wide reveal-img" data-lightbox="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=800&q=80" alt="Baker at work" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+          <div class="gallery-item reveal-img" data-lightbox="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&q=80" alt="Bread loaves" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+          <div class="gallery-item reveal-img" data-lightbox="https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=800&q=80" alt="Macarons" />
+            <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+          </div>
+        </div>
+      </div>
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <img src="" alt="Gallery image" id="lightboxImg" />
+      </div>
+    </section>
+
+    <!-- ============================
+         REVIEWS SECTION
+    ============================= -->
+    <section class="reviews section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow reveal-up">Kind Words</p>
+          <h2 class="section-title reveal-up">What Our Customers <em>Say</em></h2>
+        </div>
+
+        <div class="reviews-slider-wrap">
+          <div class="reviews-slider" id="reviewsSlider">
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"MUI Bakery made our wedding cake and it was absolutely stunning — and delicious. Every guest asked where it was from. The custom design process was so smooth and fun. Cannot recommend enough!"</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#c9a87c">SP</div>
+                <div>
+                  <strong>Sarina Pradhan</strong>
+                  <span>Wedding Cake Client · Bhaktapur</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"I buy their sourdough every Saturday morning and it has genuinely changed my relationship with bread. The crust, the smell, the chew — nothing in Kathmandu Valley comes close."</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#d4a5a5">RM</div>
+                <div>
+                  <strong>Roshan Maharjan</strong>
+                  <span>Regular Customer · Thimi</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="review-text">"We ordered cupcakes for our daughter's birthday and the kids went absolutely wild for them. They looked too pretty to eat, but that didn't stop anyone! Fresh, soft, perfectly sweet."</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#a8b5a0">BT</div>
+                <div>
+                  <strong>Binita Tamrakar</strong>
+                  <span>Birthday Party Order · Bhaktapur</span>
+                </div>
+              </div>
+            </div>
+
+                       <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"MUI Bakery made our wedding cake and it was absolutely stunning — and delicious. Every guest asked where it was from. The custom design process was so smooth and fun. Cannot recommend enough!"</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#c9a87c">SP</div>
+                <div>
+                  <strong>Sarina Pradhan</strong>
+                  <span>Wedding Cake Client · Bhaktapur</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"I buy their sourdough every Saturday morning and it has genuinely changed my relationship with bread. The crust, the smell, the chew — nothing in Kathmandu Valley comes close."</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#d4a5a5">RM</div>
+                <div>
+                  <strong>Roshan Maharjan</strong>
+                  <span>Regular Customer · Thimi</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="review-text">"We ordered cupcakes for our daughter's birthday and the kids went absolutely wild for them. They looked too pretty to eat, but that didn't stop anyone! Fresh, soft, perfectly sweet."</p>
+              <div class="review-author">
+                <div class="author-avatar" style="background:#a8b5a0">BT</div>
+                <div>
+                  <strong>Binita Tamrakar</strong>
+                  <span>Birthday Party Order · Bhaktapur</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- /reviews-slider -->
+          
+
+          
+
+          <div class="slider-controls">
+            <button class="slider-btn" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-btn" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </section>
+
+    <!-- ============================
+         CONTACT SECTION
+    ============================= -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow reveal-up">Find Us</p>
+          <h2 class="section-title reveal-up">Visit <em>MUI Bakery</em></h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-card reveal-up">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Our Bakery</h4>
+                <p>Radhe-radhe, <strong>Bhaktapur</strong></p>
+              </div>
+            </div>
+            <div class="contact-card reveal-up">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4>Phone</h4>
+                <p><a href="tel:+9779851403732">+977 985-1403732</a></p>
+              </div>
+            </div>
+            <div class="contact-card reveal-up">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email Us</h4>
+                <p><a href="mailto:hello@muibakery.com.np">hello@muibakery.com.np</a></p>
+              </div>
+            </div>
+            <div class="contact-card reveal-up">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4>Opening Hours</h4>
+                <p>Sunday – Saturday: <strong>6:00 AM – 9:30 PM</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-map reveal-img">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3533.264085838259!2d85.3985692!3d27.6782316!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b005f76f745%3A0x7c5ce12713eb66ff!2sMui%20Bakery!5e0!3m2!1sen!2snp!4v1774080076990!5m2!1sen!2snp"
+              width="100%"
+              height="420"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="MUI Bakery Location — Bhaktapur, Nepal"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#hero" class="nav-brand footer-logo">
+            <span class="brand-script">MUI</span>
+            <span class="brand-word">Bakery</span>
+          </a>
+          <p class="footer-tagline">Freshly baked happiness,<br/>every single day in Bhaktapur.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Our Menu</a></li>
+            <li><a href="#special">Custom Cakes</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Products</h5>
+          <ul class="footer-links">
+            <li><a href="#menu">Celebration Cakes</a></li>
+            <li><a href="#menu">Croissants &amp; Pastries</a></li>
+            <li><a href="#menu">Artisan Bread</a></li>
+            <li><a href="#menu">Cupcakes</a></li>
+            <li><a href="#special">Wedding Cakes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact</h5>
+          <ul class="footer-links footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Radhe-radhe, Bhaktapur, Nepal</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+9779851403732">+977 985-1403732</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:hello@muibakery.com.np">hello@muibakery.com.np</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 MUI Bakery, Bhaktapur, Nepal. All rights reserved. Made with <i class="fas fa-heart" style="color:#e8a87c"></i> in Nepal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+</body>
+</html>
