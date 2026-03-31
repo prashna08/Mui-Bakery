@@ -165,10 +165,23 @@ ul { list-style: none; }
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
-  background: var(--charcoal);
+  background: linear-gradient(135deg, #c77d4a, #8a5c35);
   color: var(--cream);
+  border: 1px solid rgba(255,255,255,.4);
+  box-shadow: 0 8px 20px rgba(107,78,42,.24);
+  border-radius: 48px;
+  padding: 12px 28px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast), opacity var(--dur-fast), filter var(--dur-fast);
 }
-.btn-primary:hover { background: var(--brown-dark); }
+.btn-primary:hover {
+  background: linear-gradient(135deg, #a9713b, #755131);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(107,78,42,.35);
+  filter: brightness(1.03);
+}
 
 .btn-ghost {
   background: transparent;
@@ -178,10 +191,36 @@ ul { list-style: none; }
 .btn-ghost:hover { border-color: rgba(255,255,255,1); }
 
 .btn-nav {
-  background: var(--charcoal);
+  background: linear-gradient(135deg, var(--rose), var(--brown-mid));
   color: var(--cream);
-  padding: 10px 24px;
-  font-size: .84rem;
+  padding: 11px 26px;
+  font-size: .88rem;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 10px 24px rgba(212, 122, 86, .25);
+  border-radius: 36px;
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast), opacity var(--dur-fast);
+}
+
+.btn-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(212, 122, 86, .35);
+  opacity: .95;
+}
+
+.btn-mobile {
+  background: linear-gradient(135deg, var(--rose), var(--brown-mid));
+  color: var(--cream);
+  padding: 12px 24px;
+  border: 2px solid rgba(255,255,255,.25);
+  box-shadow: 0 10px 28px rgba(212, 122, 86, .25);
+  border-radius: 36px;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.btn-mobile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(212, 122, 86, .4);
 }
 
 .btn-cream {
@@ -372,15 +411,30 @@ ul { list-style: none; }
 .mobile-nav.open { transform: translateX(0); }
 .mobile-nav-close {
   position: absolute;
-  top: 24px; right: 28px;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,.5);
-  font-size: 1.4rem;
+  top: 20px; right: 22px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: rgba(255,255,255,.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: color var(--dur-fast);
+  transition: all var(--dur-fast);
+  z-index: 1001;
 }
-.mobile-nav-close:hover { color: var(--white); }
+.mobile-nav-close:hover {
+  background: rgba(255,255,255,.2);
+  color: var(--white);
+  transform: scale(1.05);
+}
+.mobile-nav-close:focus {
+  outline: 2px solid rgba(255,255,255,.76);
+  box-shadow: 0 0 0 4px rgba(212, 122, 86, .3);
+}
 .mobile-links { display: flex; flex-direction: column; gap: 8px; }
 .mobile-link {
   font-family: var(--font-display);
@@ -1283,10 +1337,29 @@ ul { list-style: none; }
   .hamburger { display: flex; }
   .review-card { flex: 0 0 100%; }
   .form-row { grid-template-columns: 1fr; }
+
+  /* Mobile typography and buttons */
+  .hero-title { font-size: clamp(2rem, 8vw, 3.6rem); }
+  .hero-sub { font-size: clamp(.92rem, 2.4vw, 1.1rem); }
+  .hero-actions .btn { padding: 10px 18px; font-size: .82rem; }
+  .btn { padding: 10px 18px; font-size: .85rem; }
+  .btn-primary { padding: 11px 22px; font-size: .85rem; min-width: 170px; }
+  .mobile-link { font-size: clamp(1.5rem, 6vw, 2.4rem); }
+  .mobile-nav .btn-mobile { padding: 10px 20px; font-size: .95rem; }
 }
 
 @media (max-width: 600px) {
   .footer-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
   .hero-badge { display: none; }
+
+  /* Extra compact for small phones */
+  .hero-title { font-size: clamp(1.8rem, 9vw, 3.2rem); }
+  .hero-sub { font-size: clamp(.88rem, 2.8vw, 1.05rem); }
+  .nav-link { font-size: .8rem; padding: 5px 8px; }
+  .btn { padding: 8px 16px; font-size: .8rem; }
+  .btn-primary { padding: 10px 20px; font-size: .82rem; min-width: 150px; }
+  .mobile-link { font-size: clamp(1.3rem, 7vw, 2rem); }
+  .mobile-nav { padding: 50px 16px; }
+  .mobile-nav-close { top: 16px; right: 16px; }
 }

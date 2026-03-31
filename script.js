@@ -107,7 +107,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 // =============================================
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
-const mobileClose = document.getElementById('mobileClose');
 
 function openMobileNav() {
   mobileNav.classList.add('open');
@@ -127,8 +126,21 @@ function closeMobileNav() {
   document.body.style.overflow = '';
 }
 
-hamburger.addEventListener('click', openMobileNav);
-mobileClose.addEventListener('click', closeMobileNav);
+function toggleMobileNav() {
+  if (mobileNav.classList.contains('open')) {
+    closeMobileNav();
+  } else {
+    openMobileNav();
+  }
+}
+
+hamburger.addEventListener('click', toggleMobileNav);
+
+// Ensure menu closes when clicking a mobile menu link
+const mobileLinks = document.querySelectorAll('.mobile-link');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', closeMobileNav);
+});
 
 
 // =============================================
